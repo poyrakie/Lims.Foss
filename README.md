@@ -37,24 +37,3 @@ class Program()
     }
 }
 ```
-<div hidden>
-```
-@startuml
-title NirResultService
-start
-:User enters source and backup directory;
-:List is made of all files in source directory;
-repeat :List of files;
-:Parse .csv file to object;
-if(Parse was successfull) then (Yes)
-:Add object to list;
-:Move .csv file to backup directory;
-else (No)
-:Add empty object with filename and Error: true to list;
-endif
-repeat while (More files) is (Yes) not (No)
-:Returns list with created objects;
-stop
-@enduml
-```
-</div>  
