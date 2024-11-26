@@ -4,7 +4,7 @@
 
 ## `NirResultService`
 
-The `NirResultService` is a specialized service for parsing and processing `.csv` files containing lab result data from FOSS DS3 NIR equipment. Successfully parsed files are moved to a backup storage for archiving. The service is designed to be somewhat modular and extensible.
+The `NirResultService` is a specialized service for parsing and processing `.csv` files containing lab result data from FOSS DS3 NIR equipment. Successfully parsed files are moved to a backup storage for archiving. The service is designed to be modular and extensible.
 
 ---
 ## Features
@@ -14,7 +14,7 @@ The `NirResultService` is a specialized service for parsing and processing `.csv
 - **Expected Output**: List of objects with succesfully processed files, unsucessful operators will end up as an object with error value set to true.
 - **Error Handling**: Skips ~~and logs~~ errors during parsing to ensure robustness.
 - **Backup Storage**: Succesfully processed files are moved to a desginated backup storage location.
-- **Extensibility**: The service currently supports rapsfrö, rapsmjöl and rapspresskaka. It is prepared to support more products with some minor additions to the code.
+- **Extensibility**: The service currently supports all products with the right .csv strukture.
 
 ## Installation
 Nuget package coming soon
