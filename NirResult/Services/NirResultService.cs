@@ -3,7 +3,7 @@ using NirResult.Models;
 
 namespace NirResult.Services;
 
-public class NirResultService
+public class NirResultService : INirResultService
 {
     public NirResultService()
     {
