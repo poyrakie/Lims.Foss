@@ -1,4 +1,6 @@
-﻿namespace NirResult.Models.Services;
+﻿using NirResult.Models;
+
+namespace NirResult.Services;
 
 public interface INirResultService
 {

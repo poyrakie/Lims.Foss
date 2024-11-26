@@ -1,6 +1,7 @@
 ﻿using System.Globalization;
+using NirResult.Models;
 
-namespace NirResult.Models.Helpers;
+namespace NirResult.Helpers;
 
 public class CsvHelpers
 {
@@ -17,15 +18,19 @@ public class CsvHelpers
                     string line;
                     int lineNumber = 0;
                     ResultSummary result = new ResultSummary();
-                    string[] arrayToUse = [];
-                    string[] rapsfröArray = ["Avfall", "Fett", "Ffa", "Glukosinolater", "Klorofyll", "Protein", "Vatten"];
-                    string[] rapsmjölArray = ["Buffertlöslighet", "Fett", "Glukosinolater", "Pepsinlöslighet", "Protein", "Vatten"];
-                    string[] rapspresskakaArray = ["Fett", "Vatten"];
+                    List<string> analysNames = new();
 
                     while ((line = sr.ReadLine()!) != null)
                     {
                         lineNumber++;
-                        if (lineNumber == 2)
+                        if (lineNumber == 1)
+                        {
+                            List<string> parseResult = ParseCsvLine(line);
+
+                            for (int i = 8; i < parseResult.Count - 2; i = i + 4)
+                                analysNames.Add(parseResult[i]);
+                        }
+                        else if (lineNumber == 2)
                         {
                             List<string> parseResult = ParseCsvLine(line);
 
@@ -40,22 +45,11 @@ public class CsvHelpers
                             result.CupId = parseResult[parseResult.Count() - 2];
                             result.CupType = parseResult[parseResult.Count() - 1];
                             result.Results = new List<Result>();
-                            switch (result.ProductName)
-                            {
-                                case "Rapsfrö":
-                                    arrayToUse = rapsfröArray;
-                                    break;
-                                case "Rapsmjöl":
-                                    arrayToUse = rapsmjölArray;
-                                    break;
-                                case "Rapspresskaka":
-                                    arrayToUse = rapspresskakaArray;
-                                    break;
-                            }
+
                             int i = 8;
-                            foreach (string arrayTitle in arrayToUse)
+                            foreach (string title in analysNames)
                             {
-                                result.Results.Add(CreateResult(result.ProductName, arrayTitle, parseResult, i));
+                                result.Results.Add(CreateResult(result.ProductName, title, parseResult, i));
                                 i = i + 4;
                             }
                         }
@@ -67,7 +61,7 @@ public class CsvHelpers
         catch (Exception ex)
         {
             Console.WriteLine(ex.Message);
-            return null;
+            return null!;
         }
 
     }
@@ -107,8 +101,13 @@ public class CsvHelpers
     public static double ConvertToDouble(string value)
     {
         value = value.Replace(",", ".");
-        if (double.TryParse(value, System.Globalization.NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
+        if (double.TryParse(value, NumberStyles.Any, CultureInfo.InvariantCulture, out double result))
+        {
+            if (result < 0)
+                result = 0;
             return result;
+        }
+
         throw new Exception($"Could not read value '{value}' as a number");
     }
     public CsvHelpers()

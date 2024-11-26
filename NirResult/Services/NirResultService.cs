@@ -1,6 +1,7 @@
-﻿using NirResult.Models.Helpers;
+﻿using NirResult.Helpers;
+using NirResult.Models;
 
-namespace NirResult.Models.Services;
+namespace NirResult.Services;
 
 public class NirResultService
 {
