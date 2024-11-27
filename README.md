@@ -1,10 +1,10 @@
-# Lims.Utils
+# Lims.Foss
+<div hidden>
+`Lims.Foss` is a modular solution designed to host a collection of utilities and services for managing laboratory information. The goal of the solution is to provide a suite of reusable, lightweight and effective tools for handling lab-related data and workflows, with minimal dependencys.
 
-`Lims.Utils` is a modular solution designed to host a collection of utilities and services for managing laboratory information. The goal of the solution is to provide a suite of reusable, lightweight and effective tools for handling lab-related data and workflows, with minimal dependencys.
-
-## `NirResultService`
-
-The `NirResultService` is a specialized service for parsing and processing `.csv` files containing lab result data from FOSS DS3 NIR equipment. Successfully parsed files are moved to a backup storage for archiving. The service is designed to be modular and extensible.
+## `Lims.Foss`
+</div>
+The `Lims.Foss` is a specialized service for parsing and processing `.csv` files containing lab result data from FOSS DS3 NIR equipment. Successfully parsed files are moved to a backup storage for archiving. The service is designed to be modular and extensible.
 
 ---
 ## Features
@@ -12,7 +12,7 @@ The `NirResultService` is a specialized service for parsing and processing `.csv
 - **Equipment**: FOSS DS3 NIR.
 - **CSV Parsing**: Processes `.csv` files containing lab results using the [CsvHelper](https://github.com/poyrakie/Lims.Utils/blob/master/NirResult/Models/Helpers/CsvHelpers.cs) methods.
 - **Expected Output**: List of objects with succesfully processed files, unsucessful operators will end up as an object with error value set to true.
-- **Error Handling**: Skips ~~and logs~~ errors during parsing to ensure robustness.
+- **Error Handling**: Skips and logs errors in objects with error value set to true during parsing to ensure robustness.
 - **Backup Storage**: Succesfully processed files are moved to a desginated backup storage location.
 - **Extensibility**: The service currently supports all products with the right .csv strukture.
 
