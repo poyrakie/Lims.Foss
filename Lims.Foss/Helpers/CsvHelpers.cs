@@ -60,8 +60,11 @@ public class CsvHelpers
         }
         catch (Exception ex)
         {
-            Console.WriteLine(ex.Message);
-            return null!;
+            return new ResultSummary()
+            {
+                Error = true,
+                ErrorMessage = $"ERROR :: File: {file} Exception: {ex.Message}"
+            };
         }
 
     }

@@ -4,6 +4,7 @@ public class ResultSummary
 {
     public DateTime ResultDate { get; set; }
     public bool Error { get; set; }
+    public string ErrorMessage { get; set; }
     public bool Valid { get; set; }
     public string ProductName { get; set; } = null!;
     public string ProductCode { get; set; } = null!;

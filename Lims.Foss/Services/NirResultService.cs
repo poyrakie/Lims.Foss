@@ -18,17 +18,14 @@ public class NirResultService : INirResultService
         foreach (var file in files)
         {
             var answer = CsvHelpers.ParseCsvToResultSummary(file);
-            if (answer != null)
+            if (!answer.Error)
             {
                 results.Add(answer);
                 Directory.Move(file, Path.Combine(backupPath, Path.GetFileName(file)));
             }
             else
             {
-                results.Add(new ResultSummary()
-                {
-                    Error = true
-                });
+                results.Add(answer);
             }
         }
         return results;
