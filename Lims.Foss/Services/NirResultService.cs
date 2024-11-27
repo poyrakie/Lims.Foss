@@ -1,7 +1,7 @@
-﻿using NirResult.Helpers;
-using NirResult.Models;
+﻿using Lims.Foss.Helpers;
+using Lims.Foss.Models;
 
-namespace NirResult.Services;
+namespace Lims.Foss.Services;
 
 public class NirResultService : INirResultService
 {

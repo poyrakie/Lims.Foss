@@ -1,6 +1,6 @@
-﻿using NirResult.Models;
+﻿using Lims.Foss.Models;
 
-namespace NirResult.Services;
+namespace Lims.Foss.Services;
 
 public interface INirResultService
 {

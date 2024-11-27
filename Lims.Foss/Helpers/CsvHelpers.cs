@@ -1,7 +1,7 @@
 ﻿using System.Globalization;
-using NirResult.Models;
+using Lims.Foss.Models;
 
-namespace NirResult.Helpers;
+namespace Lims.Foss.Helpers;
 
 public class CsvHelpers
 {

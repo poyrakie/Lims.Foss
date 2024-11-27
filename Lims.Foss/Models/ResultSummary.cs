@@ -1,4 +1,4 @@
-﻿namespace NirResult.Models;
+﻿namespace Lims.Foss.Models;
 
 public class ResultSummary
 {
