@@ -1,9 +1,4 @@
 # Lims.Foss
-<div hidden>
-`Lims.Foss` is a modular solution designed to host a collection of utilities and services for managing laboratory information. The goal of the solution is to provide a suite of reusable, lightweight and effective tools for handling lab-related data and workflows, with minimal dependencys.
-
-## `Lims.Foss`
-</div>
 The `Lims.Foss` is a specialized service for parsing and processing `.csv` files containing lab result data from FOSS DS3 NIR equipment. Successfully parsed files are moved to a backup storage for archiving. The service is designed to be modular and extensible.
 
 ---
